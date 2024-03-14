@@ -1,0 +1,24 @@
+name: 'Hello World'
+description: 'Build a JSON Configuration File for Deployment to a Function App'
+
+inputs:
+  region_name:
+    description: 'The region in which to the app is deployed'
+    required: true
+
+  environment_name:
+    description: 'The environment in which the app is deployed'
+    required: true
+
+  keyvault_name_suffix:
+    description: 'The suffix to be appended to the keyvault name'
+    required: true
+
+  output_file_path:
+    description: 'The path to the output file'
+    required: true
+    default: "infra/appsettings.json"
+
+runs:
+  using: 'node20'
+  main: 'index.js'
