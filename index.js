@@ -1,9 +1,6 @@
 import * as core from "@actions/core"
 import * as fs from "node:fs"
 
-// expect that this will be in the working directory
-// import data from "./infra/app.config.json"
-
 try {
     const directory = process.cwd()
 
@@ -17,6 +14,10 @@ try {
             core.info(file)
         })
     })
+
+    const data = JSON.parse(fs.readFileSync(path.join(directory, "/infra/app.config.json"), 'utf8'))
+
+    core.info(data)
 
     const regionKey = core.getInput('region_name')
     const environmentKey = core.getInput('environment_name')
