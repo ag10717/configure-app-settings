@@ -36,6 +36,8 @@ try {
     combinedJson.AppSettings__ApimApiKey = apiKeyString
     combinedJson.AzureAppConfigurationConnectionString = appConfigString
 
+    core.info(`combinedJson ${JSON.stringify(combinedJson)}`)
+
     fs.writeFileSync(outputFilePath, JSON.stringify(combinedJson))
 } catch (error) {
     core.setFailed(error.message)
