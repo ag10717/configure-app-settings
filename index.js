@@ -1,10 +1,21 @@
-import { core } from "@actions/core"
+import * as core from "@actions/core"
 import { fs } from "node:fs"
 
 // expect that this will be in the working directory
-import data from "./infra/app.config.json"
+// import data from "./infra/app.config.json"
 
 try {
+    core.info(`directory: ${path.join(__dirname, "")}`)
+    fs.readdir(path.join(__dirname, "")), (err, files) => {
+        if (err) {
+            core.setFailed(err.message)
+        }
+
+        files.forEach(function (file) {
+            core.info(file)
+        })
+    }
+
     const regionKey = core.getInput('region_name')
     const environmentKey = core.getInput('environment_name')
     const keyvaultNameSuffix = core.getInput('keyvault_name_suffix')
