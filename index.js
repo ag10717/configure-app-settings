@@ -18,7 +18,7 @@ try {
 
     const data = JSON.parse(fs.readFileSync(path.join(directory, "/infra/app.config.json"), 'utf8'))
 
-    core.info(data)
+    core.info(JSON.stringify(data))
 
     const regionKey = core.getInput('region_name')
     const environmentKey = core.getInput('environment_name')
