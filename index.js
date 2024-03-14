@@ -6,8 +6,9 @@ import * as path from "node:path"
 // import data from "./infra/app.config.json"
 
 try {
-    core.info(`directory: ${path.join(__dirname, "")}`)
-    fs.readdir(path.join(__dirname, "")), (err, files) => {
+    
+    core.info(`directory: ${process.cwd()}`)
+    fs.readdir(process.cwd()), (err, files) => {
         if (err) {
             core.setFailed(err.message)
         }
