@@ -1,5 +1,6 @@
 import * as core from "@actions/core"
 import * as fs from "node:fs"
+import * as path from "node:path"
 
 // expect that this will be in the working directory
 // import data from "./infra/app.config.json"
