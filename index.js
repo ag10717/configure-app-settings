@@ -5,9 +5,10 @@ import * as fs from "node:fs"
 // import data from "./infra/app.config.json"
 
 try {
-    
-    core.info(`directory: ${process.cwd()}`)
-    fs.readdir(process.cwd()), (err, files) => {
+    const directory = process.cwd()
+
+    core.info(`directory: ${directory}`)
+    fs.readdir(directory, (err, files) => {
         if (err) {
             core.setFailed(err.message)
         }
@@ -15,7 +16,7 @@ try {
         files.forEach(function (file) {
             core.info(file)
         })
-    }
+    })
 
     const regionKey = core.getInput('region_name')
     const environmentKey = core.getInput('environment_name')
